@@ -58,9 +58,10 @@ export default {
         const ad = {
           title: this.title,
           description: this.description,
-          promo: this.promo
+          promo: this.promo,
+          imgSrc: 'https://cdn.vuetifyjs.com/images/carousel/planet.jpg'
         }
-        console.log(ad)
+        this.$store.dispatch('creareAd', ad)
       }
     }
   }
