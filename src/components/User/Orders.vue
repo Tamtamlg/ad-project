@@ -12,7 +12,7 @@
             :key="order.id"
           >
             <v-list-tile-action>
-              <v-checkbox color="success" :input-value="order.done" @change="markDone(order)"></v-checkbox>
+              <v-checkbox color="primary" :input-value="order.done" @change="markDone(order)"></v-checkbox>
             </v-list-tile-action>
 
             <v-list-tile-content>
