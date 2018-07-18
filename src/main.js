@@ -5,8 +5,11 @@ import store from './store'
 import * as fb from 'firebase'
 import Vuetify from 'vuetify'
 import 'vuetify/dist/vuetify.min.css'
+import BuyModalComponent from '@/components/Shared/BuyModal'
 
 Vue.use(Vuetify)
+
+Vue.component('app-buy-modal', BuyModalComponent)
 
 Vue.config.productionTip = false
 
@@ -26,5 +29,13 @@ new Vue({
       storageBucket: 'ads-vue-project.appspot.com',
       messagingSenderId: '299083538396'
     })
+
+    fb.auth().onAuthStateChanged(user => {
+      if (user) {
+        this.$store.dispatch('autoLoginUser', user)
+      }
+    })
+
+    this.$store.dispatch('fetchAds')
   }
 })
